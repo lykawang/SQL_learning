@@ -1,10 +1,10 @@
-## ---About SQL---
+## About SQL
 
-SQL Statement
-> e.g. SELECT * FROM Countries WHERE Countinet = 'Europe';
+###### SQL Statement
+> SELECT * FROM Countries WHERE Countinet = 'Europe';
 clause & logical expression
 
-Fundamental Functions CRUD
+###### Fundamental Functions CRUD
 - Create (INSERT)
 - Read (SELECT)
 - Update (UPDATE)
@@ -12,7 +12,7 @@ Fundamental Functions CRUD
 
 
 
-## --- The SELECT statement ---
+## The SELECT statement
 
 > SELECT Name, LifeExpentancy AS "Life Expectancy" FROM Country ORDERBY Name;
 
