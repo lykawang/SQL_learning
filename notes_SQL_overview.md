@@ -2,9 +2,11 @@
 
 ###### SQL Statement
 > SELECT * FROM Countries WHERE Countinet = 'Europe';
+
 clause & logical expression
 
 ###### Fundamental Functions CRUD
+
 - Create (INSERT)
 - Read (SELECT)
 - Update (UPDATE)
