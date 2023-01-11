@@ -16,7 +16,7 @@ Fundamental Functions CRUD
 
 > SELECT Name, LifeExpentancy AS "Life Expectancy" FROM Country ORDERBY Name;
 
-AS keyword can be emitted
+AS is used to give an alias, this keyword can be emitted.
 
 single quotes are used for a literal string, 
 double quotes are used for most other things.
@@ -25,7 +25,7 @@ double quotes are used for most other things.
 
 --- Selecting rows ---
 
-> SELECT Name, Continent. Region FROM Country WHERE Continent = 'Europe' ORDER BY Name LIMIT 5;
+> SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe' ORDER BY Name LIMIT 5;
 In this case, only show the first 5 rows.
 
 LIMIT is used to select the first x rows in the table.
@@ -37,3 +37,37 @@ OFFSET is used to ignore the the first x rows in the table, and do the other.
 
 ORDER BY clause has to be after the WHERE clause, 
 LIMIT and OFFSET clauses has be to the last.
+
+
+
+--- Counting rows ---
+
+> SLECT COUNT(*) FROM Country WHERE Population > 10000 AND Continent = 'Europe';
+
+
+> SLECT COUNT(LifeExpentancy) FROM COuntry WHERE Population > 10000 AND Continent = 'Europe';
+In this case, it only counts the rows that have data.
+
+
+
+--- Inserting data ---
+
+> INSERT INTO customer (name, address, city, state, zip)
+>   VALUES ('Fred Flintstone', '123 Cobblestone Way', 'Bedrock', 'CA', '91234')
+
+> INSERT INTO customer (name, city, state)
+>   VALUES ('Jimi Hendrix', 'Renton', 'WA')
+    
+    
+    
+--- Updating data ---
+
+> UPDATE customer SET address = '123 Musice Avenue', zip = '98056' WHERE id = 5;
+
+> UPDATE customer SET address = NULL, zip = NULL WHERE id = 5;
+
+
+
+--- Deleting data ---
+
+> DELETE FROM customer WHERE id = 4;
