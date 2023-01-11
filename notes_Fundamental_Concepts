@@ -1,1 +1,92 @@
+--- Creating a table ---
+
+> CREATE TABLE test (
+>   a INTEGER,
+>   b TEXT
+> );
+
+
+
+--- Deleting a table ---
+
+> DROP TABLE test;
+
+> DROP TABLE IF EXISTS test;
+
+
+
+--- Inserting rows ---
+
+> INSERT INTO test VALUES (1, 'This', 'Right here!');
+
+> INSER INTO test (b, c) VALUES ('That', 'Over there!');
+
+> INSERT INTO test DEFAULT VALUES;
+In this case, the inserted value maybe "NULL NULL NULL".
+
+use the results of a "SELECT" statement to add rows to a table.
+> INSERT INTO test (a, b, c) SELECT id, name, description from item;
+
+
+
+--- Deleting rows --- 
+
+> DELETE FROM test WHERE a = 3;
+
+
+
+--- THE NULL value ---
+
+NULL presents the lack of a value, so the regular equal expression can not use on NULL.
+
+> SELECT * FROM test WHERE a IS NULL:
+
+> SELECT * FROM test WHERE a IS NOT NULL:
+
+> CREATE TABLE test (
+>  a INTEGER NOT NULL,
+>  b TEXT NOT NULL,
+>  c TEXT
+> );
+> INSERT INTO test (b, c) VALUES ('one', 'two');
+In this case, the INSERT INTO statement will get an error since the value for column a cannot be NULL.
+
+
+
+--- Constraining columns ---
+
+add an UNIQUE constraint
+set a DEFAULT value
+> CREATE TABLE test (a TEXT UNIQUE NOT NULL, b TEXT, c TEXT DEFAULT 'panda');
+
+Depending on different database system, NULL values may be exempted from the UNIQUE constraint.
+
+
+
+--- Changing a schema ---
+
+> ALTER TABLE test ADD d TEXT;
+By default, the existing table will add a column d where all the value in column d is NULL.
+
+> ALTER TABLE test ADD e TEXT DEFAULT 'panda';
+
+
+
+--- ID columns ---
+
+An ID columns is a culumn that holds a unique value for each row in a table. Typically, they are automatically populated.
+How to create an ID columns is different for every database system.
+
+syntax for SQLite databases
+> CREATE TABLE test (
+>   id INTEGER PRIMARY KEY,
+>   a INTEGER,
+>   b TEXT
+> );
+> INSERT INTO test (a, b) VALUES (10, 'a');
+In this case, I don't need to insert a value for the id columns. It will be auto-generated from 1 to somewhere.
+
+
+
+--- Filtering data ---
 
