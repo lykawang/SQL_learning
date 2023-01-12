@@ -121,3 +121,33 @@ The IN operator is used to select results that match values in a list.
 --- Ordering output ---
 # ORDER BY
 
+> SELECT Name FROM Country ORDER BY Name;
+By Default, rows are ordered by ASC.
+
+> SELECT Name FROM Country ORDER BY Name ASC;
+
+> SELECT Name, Continent FROM Country ORDER BY Name DESC, Continet;
+
+
+
+--- Conditional expressions---
+# CASE
+
+> CREATE TABLE booltest (a INTEGER, b INTEGER);
+> INSERT INTO booltest VALUES (1, 0);
+> SELECT
+>   CASE WHEN a THEN 'true' ELSE 'false' END as boolA,
+>   CASE WHEN b THEN 'true' ELSE 'false' END as boolB
+>   FROM booltest
+> ;
+In this case, a and b could be any conditional expression such as a=1, a>=3.
+In standard SQL, 0 is considered false, and anything that's not a 0 is considerd true.
+
+Alternatively,
+In this case, it is used to test whether a and b is equal to a particular value.
+> SELECT
+>   CASE a WHEN 1 THEN 'true' ELSE 'false' END AS boolA,
+>   CASE b WHEN 1 THEN 'true' ELSE 'false' END AS boolB
+>   FROM booltest
+> ;
+
