@@ -1,4 +1,5 @@
 --- Creating a table ---
+# CREATE TABLE
 
 > CREATE TABLE test (
 >   a INTEGER,
@@ -8,6 +9,7 @@
 
 
 --- Deleting a table ---
+# DROP
 
 > DROP TABLE test;
 
@@ -16,6 +18,7 @@
 
 
 --- Inserting rows ---
+# INSERT INTO
 
 > INSERT INTO test VALUES (1, 'This', 'Right here!');
 
@@ -30,12 +33,14 @@ use the results of a "SELECT" statement to add rows to a table.
 
 
 --- Deleting rows --- 
+# DELETE FROM
 
 > DELETE FROM test WHERE a = 3;
 
 
 
 --- THE NULL value ---
+# NULL # NOT NULL
 
 NULL presents the lack of a value, so the regular equal expression can not use on NULL.
 
@@ -54,6 +59,7 @@ In this case, the INSERT INTO statement will get an error since the value for co
 
 
 --- Constraining columns ---
+# UNIQUE # DEFAULT
 
 add an UNIQUE constraint
 set a DEFAULT value
@@ -64,6 +70,7 @@ Depending on different database system, NULL values may be exempted from the UNI
 
 
 --- Changing a schema ---
+# ALTER
 
 > ALTER TABLE test ADD d TEXT;
 By default, the existing table will add a column d where all the value in column d is NULL.
@@ -89,4 +96,28 @@ In this case, I don't need to insert a value for the id columns. It will be auto
 
 
 --- Filtering data ---
+# LIKE # IN
+
+> SELECT Name, Continent, Population FROM Country WHERE Name LIKE '%island%' ORDER BY Name;
+The LIKE clause filter all the rows that have the keyword somewhere in the string (does not care about whether is uppercase or lowercase). 
+
+> SELECT Name, Continent, Population FROM Country WHERE Name LIKE '%island' ORDER BY Name;
+
+> SELECT Name, Continent, Population FROM Country WHERE Name LIKE '_a%' ORDER BY Name;
+In this case, the statement filter rows where the letter A is the second character.
+
+The IN operator is used to select results that match values in a list.
+> SELECT Name, Continent, Population FROM Country WHERE Continent IN ('Europe', 'Asia') ORDER BY Name;
+
+
+
+--- Removing duplicates ---
+# DISTINCT
+
+> SELECT DISTINCT Continet FROM Country;
+
+
+
+--- Ordering output ---
+# ORDER BY
 
