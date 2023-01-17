@@ -1,0 +1,16 @@
+--- About SQL strings ---
+
+always check the documentation for the database system we used.
+
+
+--- Finding the length of a string ---
+# LENGTH('string')
+
+> SELECT Name, LENGTH(Name) AS Len
+> FROM City
+> ORDER BY Len DESC, Name;
+
+
+
+--- Selecting part of a string
+# SUBSTR('this string', 6);
