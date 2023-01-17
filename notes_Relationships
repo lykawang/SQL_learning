@@ -31,3 +31,6 @@
 > LEFT JOIN sale AS s ON s.customer_id = c.id
 > LEFT JOIN item AS i ON s.item_id = i.id
 > ORDER BY Cust, Item;
+
+Junction tables implement the many-to-many relationship of tables.
+A junction table is necessary when combining data between tables since a relationship is provided between the tables so they can be linked.
