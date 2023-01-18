@@ -4,7 +4,7 @@ always check the documentation for the database system we used.
 
 
 --- Finding the length of a string ---
-# LENGTH('string')
+# LENGTH
 
 > SELECT Name, LENGTH(Name) AS Len
 > FROM City
@@ -13,4 +13,29 @@ always check the documentation for the database system we used.
 
 
 --- Selecting part of a string
-# SUBSTR('this string', 6);
+# SUBSTR
+
+> SUBSTR('this string', 6);
+> this one means from position 6 to the end, so will return "string"
+
+> SUBSTR('this string', 6, 3);
+> this one will return "str"
+
+
+
+--- Removing spaces ---
+# TRIM # LTRIM # RTRIM 
+
+> SELECT TRIM('   string   ');
+> return "string"
+
+> SELECT LTRIM('   string   ');
+> return "string   "
+
+> SELECT RTRIM('   string   ');
+> return "   string"
+
+> SELECT RTRIM('...string...', '.');
+> return "   string"
+
+
