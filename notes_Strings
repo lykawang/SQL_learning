@@ -15,6 +15,9 @@ always check the documentation for the database system we used.
 --- Selecting part of a string
 # SUBSTR
 
+The three arguments for the SUBSTR() function in SQLite:
+string to evaluate, starting position, length of string
+
 > SUBSTR('this string', 6);
 > this one means from position 6 to the end, so will return "string"
 
@@ -29,6 +32,9 @@ always check the documentation for the database system we used.
 > SELECT TRIM('   string   ');
 > return "string"
 
+> SELECT TRIM('The test was a treat','t');
+> return "The test was a trea"
+
 > SELECT LTRIM('   string   ');
 > return "string   "
 
@@ -36,6 +42,13 @@ always check the documentation for the database system we used.
 > return "   string"
 
 > SELECT RTRIM('...string...', '.');
-> return "   string"
+> return "...string"
 
+
+
+--- Folding case ---
+# LOWER # UPPER
+
+> SELECT LOWER(Name) FROM City ORDER BY Name;
+> SELECT UPPER(Name) FROM City ORDER BY Name;
 
