@@ -1,0 +1,45 @@
+--- Numeric types ---
+
+Integer types
+- INTEGER(precision)
+- DECIMAL(precision, scale)
+- MONEY(precision, scale)
+
+Real types
+- REAL(precision)
+- FLOAT(precision)
+
+precision refers to how many digits are represented,
+scale is the magnitude of a number that may be represented.
+
+
+
+--- What type is that value? ---
+# TYPEOF
+
+some example on SQLSite
+> SELECT TYPEOF(1+1);
+return integer
+> SELECT TYPEOF(1+1.0);
+return real
+> SELECT TYPEOF('panda');
+return text
+> SELECT TYPEOF('panda'+'koala');
+return integer
+
+
+
+--- Ingeter division --- 
+
+> SELECT 1/2
+return 0
+
+
+
+--- Rounding numbers ---
+# ROUND
+
+> SELECT ROUND(2.55555);
+return 3
+> SELECT ROUND(2.55555, 3);
+return 2.556
