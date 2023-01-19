@@ -41,5 +41,7 @@ return 0
 
 > SELECT ROUND(2.55555);
 return 3
+> SELECT ROUND(2.55555, 0);
+return 3
 > SELECT ROUND(2.55555, 3);
 return 2.556
