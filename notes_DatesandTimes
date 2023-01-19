@@ -1,0 +1,29 @@
+--- Dates and times ---
+
+SQL stard datetiime format
+2018-03-28 15:32:47
+
+SQL dates and times are expressed in the UTC time zone.
+
+SQL dat and time types
+DATE
+TIME
+DATETIME
+YEAR
+INTERVEL
+
+
+
+--- Date- and time-related functions ---
+
+for SQLite
+> SELECT DATETIME('now');
+return in current UTC time, such as 2019-10-29 21:21:32
+> SELECT DATE('now');
+return in current UTC time, such as 2019-10-29
+> SELECT TIME('now');
+return in current UTC time, such as 21:21:32
+> SELECT DATETIME('now', '+1 day');
+> SELECT DATETIME('now', '+3 days');
+> SELECT DATETIME('now', '-1 month');
+> SELECT DATETIME('now', '+3 hours', '+27 minutes', '-1 day');
