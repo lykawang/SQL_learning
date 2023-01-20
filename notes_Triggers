@@ -1,0 +1,12 @@
+--- Automating data with triggers ---
+
+In SQLite,
+> CREATE TRIGGER newWidgetSale AFTER INSERT ON widgetSale
+>   BEGIN
+>     UPDATE widgetCustomer SET last_order_id = NEW.id WHERE widgetCustomer.id = NEW.customer_id;
+>   END;
+the NEW keyword re[resents a virtual row in the widgetSale table
+
+
+
+--- 
