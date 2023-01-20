@@ -1,0 +1,25 @@
+--- What are aggregates? ---
+# GROUP BY
+
+> SELECT Region, COUNT(*) AS Count
+> FROM Country
+> GROUP BY Region
+> HAVING Count >=5
+> ORDER BY Count DESC, Region;
+
+WHERE clause should be before the GOURP BY clause,
+HAVING clause should be after the GOURP BY clause
+
+
+
+--- Using aggregate functions --- 
+# COUNT # AVG # MIN # MAX # SUM
+
+
+
+--- Aggregating DISTINCT values ---
+# DISTINCT
+
+> SELECT COUNT(DISTINCT HeadOfState) FROM Country;
+
+In some system like Oracle, the UNIQUE keyword does the same thing
