@@ -1,0 +1,33 @@
+--- What are transactions? ---
+
+> BEGIN TRANSACTION
+>   INSERT INTO table_1
+>   INSERT INTO table_2
+> END TRANSACTION
+
+
+
+--- Data integrity ---
+
+> BEGIN TRANSCTION;
+> INSERT INTO widgetSales (inv_id, quan, price) VALUES (1, 5, 500);
+> UPDATE widgetInventory SET onhand = (onhand-5) WHERE id=1;
+> END TRANSCTION
+
+In MySQL, the syntax is START TRANSCTION with COMMIT
+
+If add a ROLLBACK before the END TRANSCTION, all actions between the two transction clause will be ignored.
+
+> BEGIN TRANSCTION;
+> INSERT INTO widgetSales (inv_id, quan, price) VALUES (1, 5, 500);
+> ROLLBACK;
+> END TRANSCTION
+In this case, the new values will not be inserted into the widgetSales table.
+
+
+
+--- Performance ---
+ 
+ Things happen a lot faster with the transaction.
+
+
