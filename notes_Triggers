@@ -5,8 +5,24 @@ In SQLite,
 >   BEGIN
 >     UPDATE widgetCustomer SET last_order_id = NEW.id WHERE widgetCustomer.id = NEW.customer_id;
 >   END;
-the NEW keyword re[resents a virtual row in the widgetSale table
+the NEW keyword represents a virtual row in the widgetSale table
 
 
 
---- 
+--- Preventing updates ---
+
+only some of the systems have this capability
+
+> CREATE TABLE widgetSale ( id integer primary key, item_id INT, customer_id INTEGER, quan INT, price INT, revonviled INT);
+> INSERT INTO widgetSale VALUES (1, 3, 5, 1995, 0);
+> INSERT INTO widgetSale VALUES (2, 2, 3, 1495, 1);
+> INSERT INTO widgetSale VALUES (3, 1, 1, 2995, 0);
+> CREATE TRIGGER updateWidgetSale BEFORE UPDATE ON widgetSale
+>   BEGIN
+>     SELECT RAISE(ROLLBACK, 'cannot update table "widgetSale"') FROM widgetSale WHERE id = NEW.id AND reconciled = 1;
+>   END;
+> BEGIN TRANSACTION;
+> UPDATE widgetSale SET quan = 9 WHERE id = 2;
+> END TRANSACTION
+When execuate these lines, an error message with the word 'cannot update table "widgetSale"' will appear
+And in this case, the data will not be updated
